@@ -1,4 +1,5 @@
 <?php
+include "header_mini.php";
 ?>
 <!doctype html>
 <html lang="fr">

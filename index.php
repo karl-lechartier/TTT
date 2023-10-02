@@ -7,6 +7,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
 <body>
 <main>
+    <p>
     <?php
     $requete = $pdo->prepare("select * from shop WHERE id = 1");
     $requete->execute();
@@ -16,6 +17,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
         echo $l['name'];
     }
     ?>
+    </p>
 </main>
 </body>
 
