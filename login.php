@@ -3,7 +3,6 @@ include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
-session_start();
 
 if (isset($_POST['valider'])) {
     if (!empty($_POST['mail']) AND !empty($_POST['password'])) {
@@ -28,13 +27,15 @@ if (isset($_POST['valider'])) {
 
 ?>
 <main>
-    <form action="login.php" method="post">
-        <label for="mail">Adresse mail :</label>
-        <input type="email" required id="mail" name="mail" placeholder="krarlk@mail.fr">
-        <label for="password">Mot de passe</label>
-        <input type="password" required id="password" name="password" placeholder="password">
-        <input type="submit" value="Valider" name="valider">
-    </form>
+    <div>
+        <form action="login.php" method="post">
+            <label for="mail">Adresse mail :</label>
+            <input type="email" required id="mail" name="mail" placeholder="krarlk@mail.fr">
+            <label for="password">Mot de passe</label>
+            <input type="password" required id="password" name="password" placeholder="password">
+            <input type="submit" value="Valider" name="valider">
+        </form>
+    </div>
 </main>
 <?php
 include "footer.php"

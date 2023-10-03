@@ -25,6 +25,12 @@ body {
     text-decoration: none;
     color: #efefef;
 }
+
+.no-link-style {
+    color: black;
+    text-decoration: none; /* Cela supprimera également les soulignements des liens */
+}
+
 nav {
     display: flex;
     justify-content: center;
@@ -140,6 +146,10 @@ nav > #nav-check {
     nav > #nav-check:checked ~ .nav-links {
         height: calc(100vh - 80px);
         overflow-y: auto;
+    }
+    .no-link-style {
+        color: black;
+        text-decoration: none; /* Cela supprimera également les soulignements des liens */
     }
 }
 

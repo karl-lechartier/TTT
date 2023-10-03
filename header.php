@@ -33,7 +33,7 @@ include "header_mini.php";
 
     <div class="nav-links">
         <a href="login.php">Se connecter</a>
-        <a href="">Rien</a>
+        <a href="ajout_magasin.php">Ajouter un Magasin</a>
         <a href="">Rien</a>
         <a href="">Rien</a>
     </div>
