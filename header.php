@@ -15,14 +15,17 @@ include "header_mini.php";
 <body>
 <nav>
     <input type="checkbox" id="nav-check">
+    <a href="index.php" class="home">
     <div class="nav-header">
         <div class="icone">
+
             <img src="img/logo-ttt.png" alt="Logo">
         </div>
         <div class="nav-title">
-            <a href="/" class="home" target="_blank"><h1>Gigaldi</h1></a>
+            <a href="index.php" class="home"><h1>Gigaldi</h1></a>
         </div>
     </div>
+    </a>
     <div class="nav-btn">
         <label for="nav-check">
             <span></span>
@@ -32,13 +35,11 @@ include "header_mini.php";
     </div>
 
     <div class="nav-links">
-        <a href="Admin/login.php" target="_blank">Se connecter</a>
+        <a href="login.php">Se connecter</a>
         <a href="" target="_blank">Rien</a>
         <a href="" target="_blank">Rien</a>
         <a href="" target="_blank">Rien</a>
     </div>
 </nav>
 <header>
-    <img src="img/logo-ttt.png" alt="Logo">
-    <h1>Gigaldi</h1>
 </header>

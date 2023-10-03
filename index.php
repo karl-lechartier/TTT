@@ -18,6 +18,8 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
     }
     ?>
     </p>
+    <img src="img/logo-ttt.png" alt="Logo">
+    <h1>Gigaldi</h1>
 </main>
 </body>
 
