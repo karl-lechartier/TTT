@@ -11,14 +11,16 @@ include "header_mini.php";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
+</head>
 <body>
 <nav>
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
         <div class="icone">
+            <img src="img/logo-ttt.png" alt="Logo">
         </div>
         <div class="nav-title">
-            <h1>Gigaldi</h1>
+            <a href="/" class="home" target="_blank"><h1>Gigaldi</h1></a>
         </div>
     </div>
     <div class="nav-btn">
@@ -30,11 +32,10 @@ include "header_mini.php";
     </div>
 
     <div class="nav-links">
-        <a href="//github.io/jo_geek" target="_blank">Github</a>
-        <a href="http://stackoverflow.com/users/4084003/" target="_blank">Stackoverflow</a>
-        <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">LinkedIn</a>
-        <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
-        <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a>
+        <a href="Admin/login.php" target="_blank">Se connecter</a>
+        <a href="" target="_blank">Rien</a>
+        <a href="" target="_blank">Rien</a>
+        <a href="" target="_blank">Rien</a>
     </div>
 </nav>
 <header>
