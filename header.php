@@ -21,7 +21,13 @@ include "header_mini.php";
     </div>
 
     <div class="nav-links">
-        <a href="login.php">Se connecter</a>
+        <?php
+        if ($_SESSION['mdp']) { ?>
+            <a href="login.php">Se connecter</a>
+        <?php } else {?>
+            <a href="logout.php">Se connecter</a>
+        <?php }
+        ?>
         <a href="ajout_magasin.php">Ajouter un Magasin</a>
         <a href="">Rien</a>
         <a href="">Rien</a>
