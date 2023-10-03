@@ -22,10 +22,10 @@ include "header_mini.php";
 
     <div class="nav-links">
         <?php
-        if ($_SESSION['id']) { ?>
-            <a href="logout.php">Se déconnecter</a>
-        <?php } else {?>
+        if ($_SESSION['user']['id'] == null) { ?>
             <a href="login.php">Se connecter</a>
+        <?php } else {?>
+            <a href="logout.php">Se déconnecter</a>
         <?php }
         ?>
         <a href="ajout_magasin.php">Ajouter un Magasin</a>

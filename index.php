@@ -8,10 +8,10 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 <body>
 <main>
     <?php
-    if ($_SESSION['id']) {
-        echo "connecté";
-    } else {
+    if ($_SESSION['user']['id'] == null ) {
         echo "pas connecté";
+    } else {
+        echo "connecté";
     }
     ?>
     <div class="card-deck">
