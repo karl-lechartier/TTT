@@ -15,7 +15,7 @@ if (isset($_POST['valider'])) {
         $lignes = $requete->fetchAll();
 
         foreach ($lignes as $l) {
-            if (password_verify($password_saisi, $l['mdp'])) {
+            if (password_verify($password_saisi, $l['password'])) {
                 $_SESSION['mdp'] = $password_saisi;
                 header('location: index.php');
             } else {
