@@ -25,7 +25,17 @@ if (isset($_POST['valider'])) {
     $requete->bindParam(':password', $passwordHash);
     $requete->execute();
 
-    $_SESSION['mdp'] = $password;
+    $id = $pdo->lastInsertId();
+
+    $_SESSION['user']['id'] = $id;
+    $_SESSION['user']['name'] = $name;
+    $_SESSION['user']['lastname'] = $lastname;
+    $_SESSION['user']['mail'] = $mail;
+    $_SESSION['user']['adress'] = $adress;
+    $_SESSION['user']['postalcode'] = $postalcode;
+    $_SESSION['user']['city'] = $city;
+    $_SESSION['user']['points'] = 0;
+    $_SESSION['user']['subscription'] = 0;
     header('location: index.php');
 }
 ?>
