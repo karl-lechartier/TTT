@@ -7,6 +7,13 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
 <body>
 <main>
+    <?php
+    if ($_SESSION['mdp']) {
+        echo "connecté";
+    } else {
+        echo "pas connecté";
+    }
+    ?>
     <div class="card-deck">
     <?php
     $requete = $pdo->prepare("select * from shop LIMIT 30");
