@@ -8,7 +8,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 <body>
 <main>
     <?php
-    if ($_SESSION == null) {
+    if ($_SESSION['id']) {
         echo "connecté";
     } else {
         echo "pas connecté";
