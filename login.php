@@ -16,7 +16,7 @@ if (isset($_POST['valider'])) {
         $lignes = $requete->fetchAll();
 
         foreach ($lignes as $l) {
-            if (password_verify($password_saisi, $l['mdp'])) {
+            if (password_verify($password_saisi, $l['password'])) {
                 $_SESSION['mdp'] = $password_saisi;
                 header('location: index.php');
             } else {
@@ -35,6 +35,7 @@ if (isset($_POST['valider'])) {
         <input type="password" required id="password" name="password" placeholder="password">
         <input type="submit" value="Valider" name="valider">
     </form>
+    <a href="create_login.php">Créer un compte</a>
 </main>
 <?php
 include "footer.php"
