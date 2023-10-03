@@ -22,7 +22,7 @@ include "header_mini.php";
 
     <div class="nav-links">
         <?php
-        if ($_SESSION is null) { ?>
+        if ($_SESSION == null) { ?>
             <a href="logout.php">Se déconnecter</a>
         <?php } else {?>
             <a href="login.php">Se connecter</a>
