@@ -1,9 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['user'])){
-    $_SESSION['user']['role'] = 0;
     $_SESSION['user']['id'] = null;
-    $_SESSION['user']['login'] = null;
+    $_SESSION['user']['name'] = null;
+    $_SESSION['user']['lastname'] = null;
+    $_SESSION['user']['mail'] = null;
+    $_SESSION['user']['adress'] = null;
+    $_SESSION['user']['postalcode'] = null;
+    $_SESSION['user']['city'] = null;
+    $_SESSION['user']['points'] = null;
+    $_SESSION['user']['subscription'] = null;
     $_SESSION['error'] = null;
 }
 $title="Gigaldi"
