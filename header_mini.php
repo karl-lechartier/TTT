@@ -10,6 +10,7 @@ if (!isset($_SESSION['user'])){
     $_SESSION['user']['city'] = null;
     $_SESSION['user']['points'] = null;
     $_SESSION['user']['subscription'] = null;
+    $_SESSION['user']['pro'] = null;
     $_SESSION['error'] = null;
 }
 $title="Gigaldi"
