@@ -7,19 +7,26 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
 <body>
 <main>
-    <p>
+    <div class="card-deck">
     <?php
-    $requete = $pdo->prepare("select * from shop WHERE id = 1");
+    $requete = $pdo->prepare("select * from shop LIMIT 30");
     $requete->execute();
     $lignes = $requete->fetchAll();
 
     foreach ($lignes as $l) {
-        echo $l['name'];
-    }
     ?>
-    </p>
-    <img src="img/logo-ttt.png" alt="Logo">
-    <h1>Gigaldi</h1>
+        <div class="card">
+            <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title"><?php echo $l['name']?></h2>
+                <p class="card-text"><?php echo $l['category']?></p>
+                <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
+    </div>
 </main>
 </body>
 
