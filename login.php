@@ -3,7 +3,6 @@ include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
-session_start();
 
 if (isset($_POST['valider'])) {
     if (!empty($_POST['mail']) AND !empty($_POST['password'])) {
