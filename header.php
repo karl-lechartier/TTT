@@ -26,8 +26,10 @@ include "header_mini.php";
             <a href="login.php">Se connecter</a>
         <?php } else {?>
             <a href="account.php">Mon Compte</a>
-            <a href="ajout_magasin.php">Ajouter un Magasin</a>
-        <?php }
+            <?php if ($_SESSION['user']['pro'] == 1) {?>
+                <a href="ajout_magasin.php">Ajouter un Magasin</a>
+        <?php   }
+            }
         ?>
         <a href="">Rien</a>
         <a href="">Rien</a>

@@ -25,6 +25,7 @@ if (isset($_POST['valider'])) {
                 $_SESSION['user']['city'] = $l["city"];
                 $_SESSION['user']['points'] = $l["points"];
                 $_SESSION['user']['subscription'] = $l["subscription"];
+                $_SESSION['user']['pro'] = $l['pro'];
                 header('location: index.php');
             } else {
                 echo "Votre pseudo et/ou mot de passe sont incorrect.";

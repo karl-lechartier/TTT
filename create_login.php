@@ -13,9 +13,17 @@ if (isset($_POST['valider'])) {
     $postalcode = filter_input(INPUT_POST, "postalcode");
     $city = filter_input(INPUT_POST, "city");
     $password = filter_input(INPUT_POST, "password");
+    $pro = filter_input(INPUT_POST, "pro");
+
+    if ($pro == "on") {
+        $estPro = 1;
+    } else {
+        $estPro = 0;
+    }
+
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    $requete = $pdo->prepare("insert into user (id, name, lastname, mail, adress, postalcode, city, points, subscription, password) VALUES (NULL, :name, :lastname, :mail, :adress, :postalcode, :city, 0, 0, :password)");
+    $requete = $pdo->prepare("insert into user (id, name, lastname, mail, adress, postalcode, city, points, subscription, password, pro) VALUES (NULL, :name, :lastname, :mail, :adress, :postalcode, :city, 0, 0, :password, :pro)");
     $requete->bindParam(':name', $name);
     $requete->bindParam(':lastname', $lastname);
     $requete->bindParam(':mail', $mail);
@@ -23,6 +31,7 @@ if (isset($_POST['valider'])) {
     $requete->bindParam(':postalcode', $postalcode);
     $requete->bindParam(':city', $city);
     $requete->bindParam(':password', $passwordHash);
+    $requete->bindParam(':pro', $estPro);
     $requete->execute();
 
     $id = $pdo->lastInsertId();
@@ -36,6 +45,7 @@ if (isset($_POST['valider'])) {
     $_SESSION['user']['city'] = $city;
     $_SESSION['user']['points'] = 0;
     $_SESSION['user']['subscription'] = 0;
+    $_SESSION['user']['pro'] = $estPro;
     header('location: index.php');
 }
 ?>
@@ -55,6 +65,8 @@ if (isset($_POST['valider'])) {
         <input type="text" id="city" name="city" required placeholder="Nantes">
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" required placeholder="password">
+        <label for="pro">Est professionnel :</label>
+        <input type="checkbox" id="pro" name="pro">
         <input type="submit" value="Valider" name="valider">
     </form>
 </main>
