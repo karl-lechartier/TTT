@@ -25,7 +25,7 @@ include "header_mini.php";
         if ($_SESSION['user']['id'] == null) { ?>
             <a href="login.php">Se connecter</a>
         <?php } else {?>
-            <a href="logout.php">Se déconnecter</a>
+            <a href="account.php">Mon Compte</a>
         <?php }
         ?>
         <a href="ajout_magasin.php">Ajouter un Magasin</a>
