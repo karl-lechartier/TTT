@@ -27,7 +27,7 @@ include "header_mini.php";
         <?php } else {?>
             <a href="account.php">Mon Compte</a>
             <?php if ($_SESSION['user']['pro'] == 1) {?>
-                <a href="ajout_magasin.php">Ajouter un Magasin</a>
+                <a href="managed-shop.php">Mes Magasins</a>
         <?php   }
             }
         ?>
