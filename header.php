@@ -33,9 +33,9 @@ include "header_mini.php";
 
     <div class="nav-links">
         <a href="login.php">Se connecter</a>
-        <a href="" target="_blank">Rien</a>
-        <a href="" target="_blank">Rien</a>
-        <a href="" target="_blank">Rien</a>
+        <a href="">Rien</a>
+        <a href="">Rien</a>
+        <a href="">Rien</a>
     </div>
 </nav>
 <header>

@@ -91,11 +91,16 @@ nav > #nav-check {
 }
 
 @media (max-width:600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Pour espacer les éléments verticalement */
+    }
     nav > .nav-btn {
         display: inline-block;
         position: absolute;
         right: 0px;
-        top: 0px;
+        top: 8px;
     }
     nav > .nav-btn > label {
         display: inline-block;
@@ -125,14 +130,15 @@ nav > #nav-check {
     }
     nav > .nav-links > a {
         display: block;
-        width: 100%;
+        width: 85%;
         padding: 1rem 1rem;
+        margin: auto;
     }
     nav > #nav-check:not(:checked) ~ .nav-links {
         height: 0px;
     }
     nav > #nav-check:checked ~ .nav-links {
-        height: calc(100vh - 50px);
+        height: calc(100vh - 80px);
         overflow-y: auto;
     }
 }
