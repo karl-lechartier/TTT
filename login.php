@@ -34,7 +34,9 @@ if (isset($_POST['valider'])) {
         <input type="password" required id="password" name="password" placeholder="password">
         <input type="submit" value="Valider" name="valider">
     </form>
-    <a href="create_login.php">Créer un compte</a>
+    <div class="">
+        <a href="create_login.php">Créer un compte</a>
+    </div>
 </main>
 <?php
 include "footer.php"
