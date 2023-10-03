@@ -16,7 +16,15 @@ if (isset($_POST['valider'])) {
 
         foreach ($lignes as $l) {
             if (password_verify($password_saisi, $l['password'])) {
-                $_SESSION['user']['mdp'] = $password_saisi;
+                $_SESSION['user']['id'] = $l["id"];
+                $_SESSION['user']['name'] = $l["name"];
+                $_SESSION['user']['lastname'] = $l["lastname"];
+                $_SESSION['user']['mail'] = $l["mail"];
+                $_SESSION['user']['adress'] = $l["adress"];
+                $_SESSION['user']['postalcode'] = $l["postalcode"];
+                $_SESSION['user']['city'] = $l["city"];
+                $_SESSION['user']['points'] = $l["points"];
+                $_SESSION['user']['subscription'] = $l["subscription"];
                 header('location: index.php');
             } else {
                 echo "Votre pseudo et/ou mot de passe sont incorrect.";
