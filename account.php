@@ -51,9 +51,31 @@ if (isset($_POST['valider'])) {
 
 $token = uniqid();
 $_SESSION["token"] = $token;
+
 ?>
 
 <main>
+    <script>
+        function toggleReadonly() {
+            var name = document.getElementById("name");
+            name.readOnly = !name.readOnly;
+            var lastname = document.getElementById("lastname");
+            lastname.readOnly = !lastname.readOnly;
+            var mail = document.getElementById("mail");
+            mail.readOnly = !mail.readOnly;
+            var adress = document.getElementById("adress");
+            adress.readOnly = !adress.readOnly;
+            var postalcode = document.getElementById("postalcode");
+            postalcode.readOnly = !postalcode.readOnly;
+            var city = document.getElementById("city");
+            city.readOnly = !city.readOnly;
+            var pro = document.getElementById("pro");
+            pro.disabled = !pro.disabled;
+            var valider = document.getElementById("valider");
+            valider.disabled = !valider.disabled;
+        }
+    </script>
+    <button type="submit" onclick="toggleReadonly()" >Modifier</button>
     <form action="account.php" method="post">
         <?php
         $requete = $pdo->prepare("select * from user WHERE id = :id");
@@ -66,20 +88,20 @@ $_SESSION["token"] = $token;
             <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <label for="name">Prénom :</label>
-            <input type="text" id="name" name="name" required value="<?php echo $l['name'] ?>">
+            <input type="text" id="name" name="name" required value="<?php echo $l['name'] ?>" readonly>
             <label for="lastname">Nom :</label>
-            <input type="text" id="lastname" name="lastname" required value="<?php echo $l['lastname'] ?>">
+            <input type="text" id="lastname" name="lastname" required value="<?php echo $l['lastname'] ?>" readonly>
             <label for="mail">Mail :</label>
-            <input type="email" id="mail" name="mail" required value="<?php echo $l['mail'] ?>">
+            <input type="email" id="mail" name="mail" required value="<?php echo $l['mail'] ?>" readonly>
             <label for="adress">Adresse :</label>
-            <input type="text" id="adress" name="adress" required value="<?php echo $l['adress'] ?>">
+            <input type="text" id="adress" name="adress" required value="<?php echo $l['adress'] ?>" readonly>
             <label for="postalcode">Code postal :</label>
-            <input type="text" id="postalcode" name="postalcode" required value="<?php echo $l['postalcode'] ?>">
+            <input type="text" id="postalcode" name="postalcode" required value="<?php echo $l['postalcode'] ?>" readonly>
             <label for="city">Ville :</label>
-            <input type="text" id="city" name="city" required value="<?php echo $l['city'] ?>">
+            <input type="text" id="city" name="city" required value="<?php echo $l['city'] ?>" readonly>
             <label for="pro">Est professionnel :</label>
-            <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {echo "checked"; } ?>>
-            <input type="submit" value="Sauvegarder" name="valider" >
+            <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {echo "checked"; } ?> disabled>
+            <input type="submit" value="Sauvegarder" name="valider" id="valider" disabled>
         <?php } ?>
     </form>
     <a href="logout.php">Se déconnecter</a>
