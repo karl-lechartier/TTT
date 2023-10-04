@@ -32,7 +32,7 @@ if (isset($_POST['modify'])) {
     }
     $nomOriginal = basename($photo["name"]);
     $nomIMG = $id."-".$nomOriginal;
-
+//pipi
     if ( $nomIMG != $nomImgDB and $nomIMG != $id."-"){
         $requete = $pdo->prepare("UPDATE `shop` SET name = :name, adress = :adress, category = :category, photo = :photo WHERE id = :id");
         $requete->bindParam(":name",$name);
