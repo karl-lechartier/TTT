@@ -1,8 +1,14 @@
 <?php
+echo "test1";
+
 $title = "Gigaldi";
+echo "test2";
+
 include "header.php";
+echo "test3";
+
 include_once "config.php";
-echo "prou";
+echo "test4";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 ?>
 
