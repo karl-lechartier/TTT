@@ -75,16 +75,22 @@ $_SESSION["token"] = $token;
             valider.disabled = !valider.disabled;
         }
     </script>
+    <?php
+    $requete = $pdo->prepare("select * from user WHERE id = :id");
+    $requete->bindParam(':id', $_SESSION['user']['id']);
+    $requete->execute();
+    $lignes = $requete->fetchAll();
+
+    foreach ($lignes as $l) {
+    ?>
+    <p>Points : <?php echo $l['points'] ?></p>
+    <?php if($_SESSION['user']['subscription'] == 1) {?>
+        <p>Abonnement Premium</p>
+        <a href="subscriptionUser.php">Se désabonner</a>
+    <?php } else { ?><a href="subscriptionUser.php">S'abonner</a><?php } ?>
+    <br>
     <button type="submit" onclick="toggleReadonly()" >Modifier</button>
     <form action="account.php" method="post">
-        <?php
-        $requete = $pdo->prepare("select * from user WHERE id = :id");
-        $requete->bindParam(':id', $_SESSION['user']['id']);
-        $requete->execute();
-        $lignes = $requete->fetchAll();
-
-        foreach ($lignes as $l) {
-        ?>
             <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <label for="name">Prénom :</label>
