@@ -24,16 +24,18 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
             foreach ($lignes as $l) {
                 ?>
-                <a class="magasin no-link-style" href="magasin_<?php echo $l['name'].$l['id'] ?>">
                     <div class="card">
-                        <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h2 class="card-title"><?php echo $l['name']?></h2>
-                            <p class="card-text"><?php echo $l['category']?></p>
-                            <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
-                        </div>
+                        <a class="magasin no-link-style" href="magasin_<?php echo $l['name'].$l['id'] ?>">
+                            <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="card-title"><?php echo $l['name']?></h2>
+                                <p class="card-text"><?php echo $l['category']?></p>
+                                <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
+                            </div>
+                        </a>
+                        <a href="deleteShop.php?shop_<?php echo $l['id'] ?>">Supprimer le magasin</a>
+                        <a href="manageOffer.php?shop_<?php echo $l['id'] ?>">Gérer les offres</a>
                     </div>
-                </a>
                 <?php
             }
             ?>

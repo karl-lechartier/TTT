@@ -22,7 +22,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
     foreach ($lignes as $l) {
     ?>
-        <a class="magasin no-link-style" href="magasin_<?php echo $l['name'].$l['id'] ?>">
+        <a class="magasin no-link-style" href="magasin.php?id=<?php echo $l['id'] ?>">
             <div class="card">
                 <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
                 <div class="card-body">
