@@ -10,11 +10,14 @@ echo "test3";
 include_once "config.php";
 echo "test4";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
+echo "test5";
+
 ?>
 
 <body>
 <main>
     <?php
+    echo "test6";
     if ($_SESSION['user']['id'] != null ) {
         echo "<h1 class='nom'>Bonjour, ".$_SESSION['user']['name']."</h1>";
     }
