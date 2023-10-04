@@ -15,7 +15,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
     <div class="searchbar">
         <form action="?" method="get">
-            <input type="text" id="searchInput" name="query" placeholder="Type to search...">
+            <input type="text" id="searchInput" name="query" placeholder="Recherche sur Gigaldi...">
         </form>
     </div>
 
