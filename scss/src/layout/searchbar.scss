@@ -1,0 +1,12 @@
+$searchbar-bg: #f8f8f8;
+$border-color: #ccc;
+$white: white;
+
+.searchbar {
+  width: 80%;
+  margin: 20px auto;
+  input{
+    width: calc(100% - 2rem);
+    padding: 1rem;
+  }
+}

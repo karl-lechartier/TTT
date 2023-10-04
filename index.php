@@ -12,6 +12,14 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
         echo "<h1 class='nom'>Bonjour, ".$_SESSION['user']['name']."</h1>";
     }
     ?>
+
+    <div class="searchbar">
+        <form action="?" method="get">
+            <input type="text" id="searchInput" name="query" placeholder="Type to search...">
+        </form>
+    </div>
+
+
     <div class="card-deck">
     <?php
     $requete = $pdo->prepare("select * from shop LIMIT 30");
