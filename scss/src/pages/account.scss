@@ -1,0 +1,80 @@
+$primary-color: #4CAF50;
+$secondary-color: #f44336; // Red
+$label-color: #555;
+$border-color: #ccc;
+$white: #fff;
+$dark-green: #184725;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
+
+.main-account {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: $white;
+  box-shadow: 0px 4px 6px $box-shadow-color;
+
+
+  .points {
+    background-color: #efefef;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 2px solid green;
+    margin: 0 3rem 2rem 3rem;
+    box-shadow: -4px 4px 10px #cccccc;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: $label-color;
+  }
+
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 4px $box-shadow-color;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+
+  input[type="submit"], button {
+    background-color: $primary-color;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+
+  input[type="checkbox"] {
+    width: auto;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a[href="deleteAccount.php"] {
+    color: $secondary-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
+  #userForm {
+    display: none;
+  }
+}
