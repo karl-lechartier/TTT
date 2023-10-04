@@ -4,7 +4,9 @@ include_once "config.php";
 
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
-
+if (!$_SESSION['user']['id']) {
+    header('location: index.php');
+}
 
 if (isset($_POST['valider'])) {
 
