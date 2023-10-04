@@ -1,0 +1,215 @@
+:root {
+  --green: #3D9D56;
+  --dark-green: #184725;
+  --orange: #FF914D;
+  --font-maj: 'Comfortaa', cursive;
+  --font-secundary: 'Lobster Two', cursive;
+}
+
+* {
+  font-family: var(--font-maj);
+  margin: 0;
+}
+
+h1 {
+  font-family: var(--font-secundary);
+}
+
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+}
+
+.home{
+  text-decoration: none;
+  color: #efefef;
+}
+
+.no-link-style {
+  color: black;
+  text-decoration: none; /* Cela supprimera également les soulignements des liens */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  position: relative;
+  background-color: #333;
+}
+
+nav > .nav-header {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement les éléments enfants */
+  align-items: center;
+}
+
+nav >.nav-header> .icone {
+  display: inline-block;
+  color: #fff;
+  padding: 8px 5px;
+}
+
+nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 13px 10px;
+}
+nav > .nav-header > .icone > img {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 0;
+  height: 60px;
+}
+
+nav > .nav-btn {
+  display: none;
+}
+
+nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+  font-family: Comfortaa;
+}
+
+.nav-title {
+  margin: 0rem;
+}
+
+nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pour espacer les éléments verticalement */
+  }
+  nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 8px;
+  }
+  nav > .nav-btn > label {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 13px;
+  }
+  nav > .nav-btn > label:hover,nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 9px;
+    border-top: 2px solid #eee;
+  }
+  nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    background-color: #333;
+    overflow-y: hidden;
+    top: 80px;
+    left: 0px;
+  }
+  nav > .nav-links > a {
+    display: block;
+    width: 85%;
+    padding: 1rem 1rem;
+    margin: auto;
+  }
+  nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .no-link-style {
+    color: black;
+    text-decoration: none; /* Cela supprimera également les soulignements des liens */
+  }
+}
+
+footer {
+  background-color: var(--green);
+  color: var(--orange);
+  padding: 2rem 1rem;
+  border-top: 2px solid var(--orange);
+  text-align: center;
+}
+
+.footer-networks {
+  padding-bottom: 0.8rem;
+}
+
+.footer-networks a {
+  text-decoration: none;
+  color: var(--orange);
+  font-size: 2rem;
+  padding: 0 1rem;
+  transition: color 0.25s;
+}
+
+.footer-networks a:hover {
+  color: var(--dark-green);
+  transition: color 0.25s;
+}
+
+.footer-conditions a {
+  text-decoration: none;
+  color: var(--orange);
+  font-size: 1.5rem;
+  font-family: var(--font-secundary);
+  font-weight: bolder;
+  border: 2px solid var(--orange);
+  padding: 0.3rem 0.9rem;
+  border-radius: 1rem;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions a:hover {
+  background-color: var(--orange);
+  color: var(--dark-green);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions p {
+  font-weight: bolder;
+  font-size: 1rem;
+  padding-top: 2rem;
+}
+
+.decoration-barre {
+  height:2px;
+  width:100%;
+  background-color:var(--orange);
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+
+/* cristobal apagnan */

@@ -1,0 +1,10 @@
+.searchbar {
+  width: 85%;
+  margin: 20px auto;
+  input{
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    border-radius: 50px;
+    box-shadow: -5px 5px 10px #BBB;
+  }
+}
