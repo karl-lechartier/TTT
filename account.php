@@ -8,8 +8,8 @@ if (!$_SESSION['user']['id']) {
 }
 
 if (isset($_POST['valider'])) {
-    $token=filter_input(INPUT_POST, "token");
-    if($token!=$_SESSION["token"]){
+    $token = filter_input(INPUT_POST, "token");
+    if ($token != $_SESSION["token"]) {
         die("Erreur de Token");
     }
 
@@ -54,64 +54,63 @@ $_SESSION["token"] = $token;
 
 ?>
 
-<main>
-    <script>
-        function toggleReadonly() {
-            var name = document.getElementById("name");
-            name.readOnly = !name.readOnly;
-            var lastname = document.getElementById("lastname");
-            lastname.readOnly = !lastname.readOnly;
-            var mail = document.getElementById("mail");
-            mail.readOnly = !mail.readOnly;
-            var adress = document.getElementById("adress");
-            adress.readOnly = !adress.readOnly;
-            var postalcode = document.getElementById("postalcode");
-            postalcode.readOnly = !postalcode.readOnly;
-            var city = document.getElementById("city");
-            city.readOnly = !city.readOnly;
-            var pro = document.getElementById("pro");
-            pro.disabled = !pro.disabled;
-            var valider = document.getElementById("valider");
-            valider.disabled = !valider.disabled;
-        }
-    </script>
+<main class="main-account">
     <?php
     $requete = $pdo->prepare("select * from user WHERE id = :id");
     $requete->bindParam(':id', $_SESSION['user']['id']);
     $requete->execute();
     $lignes = $requete->fetchAll();
 
-    foreach ($lignes as $l) {
+    foreach ($lignes
+
+    as $l) {
     ?>
-    <p>Points : <?php echo $l['points'] ?></p>
-    <?php if($_SESSION['user']['subscription'] == 1) {?>
+    <p class="points">Vous avez <?php echo $l['points'] ?> Gigaldi Coins</p>
+    <?php if ($_SESSION['user']['subscription'] == 1) { ?>
         <p>Abonnement Premium</p>
         <a href="subscriptionUser.php">Se désabonner</a>
     <?php } else { ?><a href="subscriptionUser.php">S'abonner</a><?php } ?>
-    <button type="submit" onclick="toggleReadonly()" >Modifier vos informations</button>
-    <form action="account.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
-            <input type="hidden" name="token" value="<?php echo $token ?>">
-            <label for="name">Prénom :</label>
-            <input type="text" id="name" name="name" required value="<?php echo $l['name'] ?>" readonly>
-            <label for="lastname">Nom :</label>
-            <input type="text" id="lastname" name="lastname" required value="<?php echo $l['lastname'] ?>" readonly>
-            <label for="mail">Mail :</label>
-            <input type="email" id="mail" name="mail" required value="<?php echo $l['mail'] ?>" readonly>
-            <label for="adress">Adresse :</label>
-            <input type="text" id="adress" name="adress" required value="<?php echo $l['adress'] ?>" readonly>
-            <label for="postalcode">Code postal :</label>
-            <input type="text" id="postalcode" name="postalcode" required value="<?php echo $l['postalcode'] ?>" readonly>
-            <label for="city">Ville :</label>
-            <input type="text" id="city" name="city" required value="<?php echo $l['city'] ?>" readonly>
-            <label for="pro">Est professionnel :</label>
-            <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {echo "checked"; } ?> disabled>
-            <input type="submit" value="Sauvegarder" name="valider" id="valider" disabled>
+    <button type="button" onclick="toggleDisplay()">Modifier vos informations</button>
+    <form action="account.php" method="post" id="userForm">
+        <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
+        <input type="hidden" name="token" value="<?php echo $token ?>">
+        <label for="name">Prénom :</label>
+        <input type="text" id="name" name="name" required value="<?php echo $l['name'] ?>">
+        <label for="lastname">Nom :</label>
+        <input type="text" id="lastname" name="lastname" required value="<?php echo $l['lastname'] ?>">
+        <label for="mail">Mail :</label>
+        <input type="email" id="mail" name="mail" required value="<?php echo $l['mail'] ?>">
+        <label for="adress">Adresse :</label>
+        <input type="text" id="adress" name="adress" required value="<?php echo $l['adress'] ?>">
+        <label for="postalcode">Code postal :</label>
+        <input type="text" id="postalcode" name="postalcode" required value="<?php echo $l['postalcode'] ?>">
+        <label for="city">Ville :</label>
+        <input type="text" id="city" name="city" required value="<?php echo $l['city'] ?>">
+        <label for="pro">Est professionnel :</label>
+        <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {
+            echo "checked";
+        } ?> >
+        <input type="submit" value="Sauvegarder" name="valider" id="valider">
         <?php } ?>
     </form>
     <a href="logout.php">Se déconnecter</a>
     <a href="deleteAccount.php">Supprimer son compte</a>
 </main>
+<script>
+    function toggleDisplay() {
+        var form = document.getElementById("userForm");
+
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+
+</script>
+
+
+</script>
 <?php
 include "footer.php";
 ?>

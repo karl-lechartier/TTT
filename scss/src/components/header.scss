@@ -1,0 +1,49 @@
+$dark-green: #184725;
+$green: #3D9D56;
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #EAFFEF;
+  padding: 10px 0; // Ajuster le padding si nécessaire
+
+  .nav-header {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    .icone img {
+      height: 60px;
+      margin-right: 10px; // Espace entre l’icône et le titre
+    }
+    .nav-title {
+      font-size: 36px;
+      color: $dark-green;
+      h1 {
+        margin: 0;
+        color: $dark-green;
+        text-shadow: 2px 1px $green;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .nav-account a {
+    display: flex;
+    align-items: center;
+    color: $dark-green;
+    text-decoration: none;
+    font-size: 18px;
+    i{
+      font-size: 3rem;
+      margin-right: 2rem;
+    }
+  }
+}
