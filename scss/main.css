@@ -212,5 +212,19 @@ footer {
 }
 
 /* cristobal apagnan */
+.card-container {
+  background-color: #f0f0f0;
+  margin-bottom: 3rem;
+}
+.card-container .card {
+  width: 80vw;
+  margin: auto;
+}
+.card-container .card .card-img-top {
+  width: 100%;
+  height: 15rem;
+  border-radius: 20px;
+  object-fit: cover;
+}
 
 /*# sourceMappingURL=main.css.map */

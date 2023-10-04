@@ -8,10 +8,8 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 <body>
 <main>
     <?php
-    if ($_SESSION['user']['id'] == null ) {
-        echo "pas connecté";
-    } else {
-        echo "connecté";
+    if ($_SESSION['user']['id'] != null ) {
+        echo "<h1 class='nom'>Bonjour, ".$_SESSION['user']['name']."</h1>";
     }
     ?>
     <div class="card-deck">
@@ -22,16 +20,18 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
     foreach ($lignes as $l) {
     ?>
-        <a class="magasin no-link-style" href="magasin_<?php echo $l['name'].$l['id'] ?>">
-            <div class="card">
-                <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
-                <div class="card-body">
-                    <h2 class="card-title"><?php echo $l['name']?></h2>
-                    <p class="card-text"><?php echo $l['category']?></p>
-                    <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
-                </div>
+            <div class="card-container">
+                <a class="magasin no-link-style" href="magasin_<?php echo $l['name'].$l['id'] ?>">
+                    <div class="card">
+                        <img class="card-img-top" src="img/<?php echo $l['photo']?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title"><?php echo $l['name']?></h2>
+                            <p class="card-text"><?php echo $l['category']?></p>
+                            <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
         <?php
         }
         ?>
