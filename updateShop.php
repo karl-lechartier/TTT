@@ -7,7 +7,6 @@ if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
 
-
 $id = $_GET['shop'];
 
 if (isset($_POST['modify'])) {
@@ -32,8 +31,9 @@ if (isset($_POST['modify'])) {
     }
     $nomOriginal = basename($photo["name"]);
     $nomIMG = $id."-".$nomOriginal;
-//pipi
+
     if ( $nomIMG != $nomImgDB and $nomIMG != $id."-"){
+        $nomOriginal = $id."-".$nomOriginal;
         $requete = $pdo->prepare("UPDATE `shop` SET name = :name, adress = :adress, category = :category, photo = :photo WHERE id = :id");
         $requete->bindParam(":name",$name);
         $requete->bindParam(":adress",$adress);

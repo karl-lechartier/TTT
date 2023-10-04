@@ -15,7 +15,7 @@ include "header_mini.php";
             </a>
         </div>
         <div class="nav-account">
-            <a href="account.php">
+            <a href="login.php">
                 <!-- Ajoutez votre icône ici. Exemple: -->
                 <!-- <img src="img/account-icon.png" alt="Account"> -->
                 <i class="fas fa-user"></i>

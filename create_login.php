@@ -8,8 +8,8 @@ if ($_SESSION['user']['id']) {
 }
 
 if (isset($_POST['valider'])) {
-    $token=filter_input(INPUT_POST, "token");
-    if($token!=$_SESSION["token"]){
+    $token = filter_input(INPUT_POST, "token");
+    if ($token != $_SESSION["token"]) {
         die("Erreur de Token");
     }
 
@@ -66,10 +66,10 @@ if (isset($_POST['valider'])) {
             die("L'adresse mail a déjà été utilisée");
         }
     }
-
-    $token = uniqid();
-    $_SESSION["token"] = $token;
 }
+$token = uniqid();
+$_SESSION["token"] = $token;
+
 ?>
 <main>
     <form action="create_login.php" method="post">
