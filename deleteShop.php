@@ -25,6 +25,12 @@ if (isset($_POST['supp'])) {
     $requete->bindParam(":id", $id);
     $requete->execute();
 
+    $lignes = $requete->fetchAll();
+    foreach ($lignes as $l) {
+        $nomimg = 'img/'.$l['photo'];
+    }
+    unlink($nomimg);
+
     $requete = $pdo->prepare("DELETE FROM `shop` WHERE id=:id");
     $requete->bindParam(":id", $id);
     $requete->execute();
@@ -38,7 +44,7 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
     <main>
-        <form action="deleteAccount.php" method="post">
+        <form action="deleteShop.php" method="post">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <input type="submit" value="Valider la suppression" name="supp">

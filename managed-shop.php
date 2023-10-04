@@ -33,8 +33,8 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
                                 <p class="card-text"><small class="text-muted"><?php echo $l['adress']?></small></p>
                             </div>
                         </a>
-                        <a href="deleteShop.php?shop_<?php echo $l['id'] ?>">Supprimer le magasin</a>
-                        <a href="manageOffer.php?shop_<?php echo $l['id'] ?>">Gérer les offres</a>
+                        <a href="deleteShop.php?shop=<?php echo $l['id'] ?>">Supprimer le magasin</a>
+                        <a href="manageOffer.php?shop=<?php echo $l['id'] ?>">Gérer les offres</a>
                     </div>
                 <?php
             }
