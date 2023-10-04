@@ -7,28 +7,49 @@ if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
 
-$id = $_GET['id'];
+
+$id = $_GET['shop'];
 
 if (isset($_POST['modify'])) {
+
     $token=filter_input(INPUT_POST, "token");
     if($token!=$_SESSION["token"]){
         die("Erreur de Token");
     }
 
-    $title = filter_input(INPUT_POST, "name");
-    $description = filter_input(INPUT_POST, "adress");
-    $date_start = filter_input(INPUT_POST, "date_start");
-    $date_end = filter_input(INPUT_POST, "date_end");
-    $points = filter_input(INPUT_POST, "points");
+    $name = filter_input(INPUT_POST, "name");
+    $adress = filter_input(INPUT_POST, "adress");
+    $category = filter_input(INPUT_POST, "category");
+    $photo = $_FILES["photo"];
 
-    $requete = $pdo->prepare("UPDATE `offer` SET title = :title, description = :description, date_start = :date_start, date_end = :date_end, points = :points WHERE id = :id");
-    $requete->bindParam(":title",$title);
-    $requete->bindParam(":description",$description);
-    $requete->bindParam(":date_start",$date_start);
-    $requete->bindParam(":date_end",$date_end);
-    $requete->bindParam(":points",$points);
-    $requete->bindParam(":id",$id);
+    $requete = $pdo->prepare("select * from shop WHERE id = :id");
+    $requete->bindParam(":id", $id);
     $requete->execute();
+    $lignes = $requete->fetchAll();
+
+    foreach ($lignes as $l) {
+        $nomImgDB = $l['photo'];
+    }
+    $nomOriginal = basename($photo["name"]);
+    $nomIMG = $id."-".$nomOriginal;
+
+    if ( $nomIMG != $nomImgDB and $nomIMG != $id."-"){
+        $requete = $pdo->prepare("UPDATE `shop` SET name = :name, adress = :adress, category = :category, photo = :photo WHERE id = :id");
+        $requete->bindParam(":name",$name);
+        $requete->bindParam(":adress",$adress);
+        $requete->bindParam(":category",$category);
+        $requete->bindParam(":photo",$nomOriginal);
+        $requete->bindParam(":id",$id);
+        $requete->execute();
+        move_uploaded_file($photo["tmp_name"], "img/$nomIMG");
+    }else {
+        $requete = $pdo->prepare("UPDATE `shop` SET name = :name, adress = :adress, category = :category WHERE id = :id");
+        $requete->bindParam(":name",$name);
+        $requete->bindParam(":adress",$adress);
+        $requete->bindParam(":category",$category);
+        $requete->bindParam(":id",$id);
+        $requete->execute();
+    }
 
     header('location: managed-shop.php');
 }
@@ -54,7 +75,7 @@ $_SESSION["token"] = $token;
                 <label for="category">Catégorie</label>
                 <input type="text" id="category" name="category" value="<?php echo $l['category'] ?>" required>
                 <label for="photo">Photo du magasin</label>
-                <input type="file" id="photo" name="photo" value="<?php echo $l['photo'] ?>" required>
+                <input type="file" id="photo" name="photo" value="<?php echo $l['photo'] ?>">
                 <input type="submit" value="Modifier" name="modify" id="modify">
             </form>
         <?php } ?>
