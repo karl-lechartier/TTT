@@ -5,8 +5,11 @@ include "header_mini.php";
 <nav>
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
+
         <div class="icone">
+        <a href="index.php">
             <img src="img/logo-ttt.png" alt="Logo">
+        </a>
         </div>
         <div class="nav-title">
             <a href="index.php" class="home"><h1>Gigaldi</h1></a>
