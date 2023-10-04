@@ -2,7 +2,6 @@
 $title = "Gigaldi";
 include "header.php";
 include_once "config.php";
-echo "prout";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 ?>
 
