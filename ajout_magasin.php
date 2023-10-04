@@ -33,11 +33,13 @@ if (isset($_POST['valider'])) {
 
     $id = $pdo->lastInsertId();
 
+    $est_proprio = 1;
+
     //INSERT INTO `user_shop` (`id_user`, `id_shop`, `est_proprio`) VALUES ('6', '13', '1');
     $requete = $pdo->prepare("INSERT INTO `user_shop` (`id_user`, `id_shop`, `est_proprio`) VALUES (:id_user, :id_shop, :est_proprio)");
     $requete->bindParam(':id_user', $_SESSION['user']['id']);
     $requete->bindParam(':id_shop', $id);
-    $requete->bindParam(':est_proprio', $category);
+    $requete->bindParam(':est_proprio', $est_proprio);
     $requete->execute();
 
     $nomIMG = $id."-".$nomOriginal;
