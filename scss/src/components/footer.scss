@@ -1,0 +1,48 @@
+footer {
+  background-color: #efefef;
+  color: var(--dark-green);
+  padding: 2rem 1rem;
+  text-align: center;
+
+}
+
+.footer-networks {
+  padding-bottom: 0.8rem;
+}
+
+.footer-networks a {
+  text-decoration: none;
+  color: var(--dark-green);
+  font-size: 2rem;
+  padding: 0 1rem;
+  transition: color 0.25s;
+}
+
+.footer-networks a:hover {
+  color: var(--light-green);
+  transition: color 0.25s;
+}
+
+.footer-conditions a {
+  text-decoration: none;
+  color: var(--dark-green);
+  font-size: 1.5rem;
+  font-family: var(--font-secundary);
+  font-weight: bolder;
+  padding: 0.3rem 0.9rem;
+  border-radius: 1rem;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions a:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions p {
+  font-weight: bolder;
+  font-size: 1rem;
+  padding-top: 2rem;
+}
+

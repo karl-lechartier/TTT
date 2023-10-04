@@ -155,63 +155,6 @@ nav > #nav-check {
     text-decoration: none; /* Cela supprimera également les soulignements des liens */
   }
 }
-footer {
-  background-color: var(--green);
-  color: var(--orange);
-  padding: 2rem 1rem;
-  border-top: 2px solid var(--orange);
-  text-align: center;
-}
-
-.footer-networks {
-  padding-bottom: 0.8rem;
-}
-
-.footer-networks a {
-  text-decoration: none;
-  color: var(--orange);
-  font-size: 2rem;
-  padding: 0 1rem;
-  transition: color 0.25s;
-}
-
-.footer-networks a:hover {
-  color: var(--dark-green);
-  transition: color 0.25s;
-}
-
-.footer-conditions a {
-  text-decoration: none;
-  color: var(--orange);
-  font-size: 1.5rem;
-  font-family: var(--font-secundary);
-  font-weight: bolder;
-  border: 2px solid var(--orange);
-  padding: 0.3rem 0.9rem;
-  border-radius: 1rem;
-  transition: color 0.25s, background-color 0.25s;
-}
-
-.footer-conditions a:hover {
-  background-color: var(--orange);
-  color: var(--dark-green);
-  transition: color 0.25s, background-color 0.25s;
-}
-
-.footer-conditions p {
-  font-weight: bolder;
-  font-size: 1rem;
-  padding-top: 2rem;
-}
-
-.decoration-barre {
-  height: 2px;
-  width: 100%;
-  background-color: var(--orange);
-  margin-bottom: 2rem;
-  margin-top: 0.5rem;
-}
-
 /* cristobal apagnan */
 .card-deck {
   background-color: #F0F0F0;
@@ -401,6 +344,53 @@ h1 {
   font-family: var(--font-secundary);
   color: var(--dark-green);
   text-shadow: 2px 1px var(--green);
+}
+
+footer {
+  background-color: #efefef;
+  color: var(--dark-green);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-networks {
+  padding-bottom: 0.8rem;
+}
+
+.footer-networks a {
+  text-decoration: none;
+  color: var(--dark-green);
+  font-size: 2rem;
+  padding: 0 1rem;
+  transition: color 0.25s;
+}
+
+.footer-networks a:hover {
+  color: var(--light-green);
+  transition: color 0.25s;
+}
+
+.footer-conditions a {
+  text-decoration: none;
+  color: var(--dark-green);
+  font-size: 1.5rem;
+  font-family: var(--font-secundary);
+  font-weight: bolder;
+  padding: 0.3rem 0.9rem;
+  border-radius: 1rem;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions a:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.footer-conditions p {
+  font-weight: bolder;
+  font-size: 1rem;
+  padding-top: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
