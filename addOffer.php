@@ -33,6 +33,8 @@ if (isset($_POST['valider'])) {
         $requete->execute();
 
         header('location: managed-shop.php');
+    } else {
+        die("La date de fin ne peut pas être égal ou plus petite que la date de début");
     }
 }
 
