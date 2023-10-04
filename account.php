@@ -88,7 +88,6 @@ $_SESSION["token"] = $token;
         <p>Abonnement Premium</p>
         <a href="subscriptionUser.php">Se désabonner</a>
     <?php } else { ?><a href="subscriptionUser.php">S'abonner</a><?php } ?>
-    <br>
     <button type="submit" onclick="toggleReadonly()" >Modifier vos informations</button>
     <form action="account.php" method="post">
             <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
