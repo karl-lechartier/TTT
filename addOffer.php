@@ -21,7 +21,7 @@ if (isset($_POST['valider'])) {
     $date_end = filter_input(INPUT_POST, "date_end");
     $points = filter_input(INPUT_POST, "points");
 
-    $requete = $pdo->prepare("INSERT INTO offer (id, title, description, date_start, date_end, points, shop_id) VALUES (null, :title, :description, :date_start, :date_end, :points, :shop_id)");
+    $requete = $pdo->prepare("insert into offer (id, title, description, date_start, date_end, points, shop_id) VALUES (NULL, :title, :description, :date_start, :date_end, :points, :shop_id)");
     $requete->bindParam(":title",$title);
     $requete->bindParam(":description",$description);
     $requete->bindParam(":date_start",$date_start);
