@@ -22,16 +22,18 @@ if (isset($_POST['valider'])) {
     $points = filter_input(INPUT_POST, "points");
     $shop = filter_input(INPUT_POST, "shop");
 
-    $requete = $pdo->prepare("INSERT INTO offer (id, title, description, date_start, date_end, points, shop_id) VALUES (NULL, :title, :description, :date_start, :date_end, :points, :shop_id)");
-    $requete->bindParam(":title",$title);
-    $requete->bindParam(":description",$description);
-    $requete->bindParam(":date_start",$date_start);
-    $requete->bindParam(":date_end",$date_end);
-    $requete->bindParam(":points",$points);
-    $requete->bindParam(":shop_id",$shop);
-    $requete->execute();
+    if ($date_end > $date_start) {
+        $requete = $pdo->prepare("INSERT INTO offer (id, title, description, date_start, date_end, points, shop_id) VALUES (NULL, :title, :description, :date_start, :date_end, :points, :shop_id)");
+        $requete->bindParam(":title",$title);
+        $requete->bindParam(":description",$description);
+        $requete->bindParam(":date_start",$date_start);
+        $requete->bindParam(":date_end",$date_end);
+        $requete->bindParam(":points",$points);
+        $requete->bindParam(":shop_id",$shop);
+        $requete->execute();
 
-    header('location: managed-shop.php');
+        header('location: managed-shop.php');
+    }
 }
 
 $token = uniqid();
