@@ -1,83 +1,49 @@
+$dark-green: #184725;
+$green: #3D9D56;
+
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  height: auto;
   width: 100%;
-  position: relative;
   background-color: #EAFFEF;
-}
+  padding: 10px 0; // Ajuster le padding si nécessaire
 
-nav > .nav-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; /* Centrer horizontalement les éléments enfants */
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+  .nav-header {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    .icone img {
+      height: 60px;
+      margin-right: 10px; // Espace entre l’icône et le titre
+    }
+    .nav-title {
+      font-size: 36px;
+      color: $dark-green;
+      h1 {
+        margin: 0;
+        color: $dark-green;
+        text-shadow: 2px 1px $green;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 
-nav > .nav-header > .icone {
-  display: inline-block;
-  color: #fff;
-  padding: 8px 5px;
-}
-
-nav > .nav-header > .nav-title {
-  display: inline-block;
-  font-size: 22px;
-  color: black;
-  padding: 13px 10px;
-}
-
-nav > .nav-header > .icone > a > img {
-  display: inline-block;
-  font-size: 22px;
-  color: #fff;
-  padding: 0;
-  height: 60px;
-}
-
-nav > .nav-btn {
-  display: none;
-}
-
-nav > .nav-links {
-  display: inline;
-  float: right;
-  font-size: 18px;
-}
-
-nav > .nav-links > a {
-  display: inline-block;
-  padding: 13px 10px 13px 10px;
-  text-decoration: none;
-  color: var(--dark-green);
-  font-family: Comfortaa;
-}
-
-.nav-title {
-  margin: 0rem;
-}
-
-nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-nav > #nav-check {
-  display: none;
-}
-h1 {
-  font-family: var(--font-secundary);
-  color: var(--dark-green) ;
-  text-shadow: 2px 1px var(--green);
+  .nav-account a {
+    display: flex;
+    align-items: center;
+    color: $dark-green;
+    text-decoration: none;
+    font-size: 18px;
+    i{
+      font-size: 3rem;
+      margin-right: 2rem;
+    }
+  }
 }

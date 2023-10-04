@@ -3,40 +3,26 @@ include "header_mini.php";
 ?>
 <body>
 <nav>
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-
-        <div class="icone">
-        <a href="index.php">
-            <img src="img/logo-ttt.png" alt="Logo">
-        </a>
+    <nav>
+        <div class="nav-header">
+            <a href="index.php" class="home">
+                <div class="icone">
+                    <img src="img/logo-ttt.png" alt="Logo">
+                </div>
+                <div class="nav-title">
+                    <h1>Gigaldi</h1>
+                </div>
+            </a>
         </div>
-        <div class="nav-title">
-            <a href="index.php" class="home"><h1>Gigaldi</h1></a>
+        <div class="nav-account">
+            <a href="account.php">
+                <!-- Ajoutez votre icône ici. Exemple: -->
+                <!-- <img src="img/account-icon.png" alt="Account"> -->
+                <i class="fas fa-user"></i>
+            </a>
         </div>
-    </div>
-    <div class="nav-btn">
-        <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-    </div>
+    </nav>
 
-    <div class="nav-links">
-        <?php
-        if ($_SESSION['user']['id'] == null) { ?>
-            <a href="login.php">Se connecter</a>
-        <?php } else {?>
-            <a href="account.php">Mon Compte</a>
-            <?php if ($_SESSION['user']['pro'] == 1) {?>
-                <a href="managed-shop.php">Mes Magasins</a>
-        <?php   }
-            }
-        ?>
-        <a href="">Rien</a>
-        <a href="">Rien</a>
-    </div>
 </nav>
 <header>
 </header>
