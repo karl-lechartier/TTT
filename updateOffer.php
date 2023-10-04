@@ -21,16 +21,20 @@ if (isset($_POST['modify'])) {
     $date_end = filter_input(INPUT_POST, "date_end");
     $points = filter_input(INPUT_POST, "points");
 
-    $requete = $pdo->prepare("UPDATE `offer` SET title = :title, description = :description, date_start = :date_start, date_end = :date_end, points = :points WHERE id = :id");
-    $requete->bindParam(":title",$title);
-    $requete->bindParam(":description",$description);
-    $requete->bindParam(":date_start",$date_start);
-    $requete->bindParam(":date_end",$date_end);
-    $requete->bindParam(":points",$points);
-    $requete->bindParam(":id",$id);
-    $requete->execute();
+    if ($date_end > $date_start) {
+        $requete = $pdo->prepare("UPDATE `offer` SET title = :title, description = :description, date_start = :date_start, date_end = :date_end, points = :points WHERE id = :id");
+        $requete->bindParam(":title", $title);
+        $requete->bindParam(":description", $description);
+        $requete->bindParam(":date_start", $date_start);
+        $requete->bindParam(":date_end", $date_end);
+        $requete->bindParam(":points", $points);
+        $requete->bindParam(":id", $id);
+        $requete->execute();
 
-    header('location: managed-shop.php');
+        header('location: managed-shop.php');
+    } else {
+        die("La date de fin ne peut pas être égal ou plus petite que la date de début");
+    }
 }
 
 $token = uniqid();
