@@ -236,6 +236,77 @@ footer {
   padding: 10px 0;
 }
 
+.titre {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.login-form {
+  padding: 20px;
+  width: 80vw;
+  margin: 2rem auto;
+}
+.login-form .form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+.login-form .form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+.login-form .form-input::placeholder {
+  color: #aaa;
+}
+.login-form .form-input:focus {
+  box-shadow: 0px 0px 5px #3D9D56;
+}
+.login-form .submit-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3D9D56;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login-form .submit-button:hover {
+  background-color: #2f7842;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-account {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.create-account h2 {
+  margin-bottom: 2rem;
+}
+.create-account .create-account-link {
+  background-color: #3D9D56;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.create-account .create-account-link:hover {
+  background-color: #2f7842;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .searchbar {
   width: 85%;
   margin: 20px auto;

@@ -39,16 +39,23 @@ if (isset($_POST['valider'])) {
 
 ?>
 <main>
-    <form action="login.php" method="post">
-        <label for="mail">Adresse mail :</label>
-        <input type="email" required id="mail" name="mail" placeholder="krarlk@mail.fr">
-        <label for="password">Mot de passe</label>
-        <input type="password" required id="password" name="password" placeholder="password">
-        <input type="submit" value="Valider" name="valider">
+    <h1 class="titre">Se connecter</h1>
+
+    <form action="login.php" method="post" class="login-form">
+        <label for="mail" class="form-label">Adresse mail :</label>
+        <input type="email" required id="mail" name="mail" placeholder="krarlk@mail.fr" class="form-input">
+
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" required id="password" name="password" placeholder="password" class="form-input">
+
+        <input type="submit" value="Valider" name="valider" class="submit-button">
     </form>
-    <div class="">
-        <a href="create_login.php">Créer un compte</a>
+
+    <div class="create-account">
+        <h2>Vous n'avez pas encore de compte?</h2>
+        <a href="create_login.php" class="create-account-link">Créer un compte</a>
     </div>
+
 </main>
 <?php
 include "footer.php"
