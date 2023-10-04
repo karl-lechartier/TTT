@@ -45,4 +45,4 @@ $_SESSION["token"] = $token;
         </form>
     </main>
 <?php
-include "footer.php"?>
+include "footer.php" ?>
