@@ -7,7 +7,6 @@ if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
 
-$id = filter_input(INPUT_GET, "id");
 
 if (isset($_POST['supp'])) {
     $token=filter_input(INPUT_POST, "token");
@@ -35,16 +34,16 @@ if (isset($_POST['supp'])) {
     $requete->bindParam(":id", $id);
     $requete->execute();
 
-    $_SESSION = array();
-    session_destroy();
-    header('location: index.php');
+    header('location: managed-shop.php');
 }
+
+$id = $_GET['shop'];
 
 $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
     <main>
-        <form action="deleteShop.php" method="post">
+            <form action="deleteShop.php" method="post">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <input type="submit" value="Valider la suppression" name="supp">
