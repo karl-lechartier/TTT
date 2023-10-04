@@ -3,6 +3,10 @@ include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
+if (!$_SESSION['user']['id']) {
+    header('location: index.php');
+}
+
 $id = $_GET['id'];
 
 if (isset($_POST['modify'])) {
@@ -24,6 +28,7 @@ if (isset($_POST['modify'])) {
     $requete->bindParam(":date_end",$date_end);
     $requete->bindParam(":points",$points);
     $requete->bindParam(":id",$id);
+    $requete->execute();
 
     header('location: managed-shop.php');
 }
@@ -40,7 +45,7 @@ $_SESSION["token"] = $token;
 
     foreach ($lignes as $l) {
     ?>
-    <form action="updateOffer.php" method="post">
+    <form action="updateOffer.php?id=<?php echo $l['id']?>" method="post">
         <input type="hidden" name="token" value="<?php echo $token ?>">
         <label for="title">Titre </label>
         <input type="text" id="title" name="title" value="<?php echo $l['title'] ?>" required >
