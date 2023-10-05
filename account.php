@@ -56,7 +56,7 @@ $_SESSION["token"] = $token;
 $now = DateTime::createFromFormat('U.u', microtime(true));
 
 srand(intval($now->format("Hisu")));
-$random = rand();
+$random = rand(100000, 999999);
 
 $requete = $pdo->prepare("select COUNT(*) as total from code WHERE id_user = :id_user");
 $requete->bindParam(':id_user', $_SESSION['user']['id']);
