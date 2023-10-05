@@ -58,6 +58,7 @@ $now = DateTime::createFromFormat('U.u', microtime(true));
 srand($now->format("Hisu"));
 $random = rand();
 
+echo "piooouoi";
 $requete = $pdo->prepare("select COUNT(*) as total from code WHERE id_user = :id_user");
 $requete->bindParam(':id_user', $_SESSION['user']['id']);
 $requete->execute();
