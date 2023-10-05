@@ -46,7 +46,9 @@ $_SESSION["token"] = $token;
             <form action="deleteShop.php" method="post">
             <input type="hidden" name="token" value="<?php echo $token ?>">
             <input type="hidden" name="id" value="<?php echo $id ?>">
-            <input type="submit" value="Valider la suppression" name="supp">
+                <div class="button-ajout-magasin-container">
+                    <input class="button" type="submit" value="Valider la suppression" name="supp">
+                </div>
         </form>
     </main>
 <?php

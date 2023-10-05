@@ -418,7 +418,7 @@ nav > #nav-check {
 }
 
 .button-ajout-magasin-container {
-  padding-top: 2rem;
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
 }
