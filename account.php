@@ -131,7 +131,7 @@ foreach ($lignes as $l) {
         <input type="submit" value="Sauvegarder" name="valider" id="valider">
     </form>
         <?php if ($l['pro'] == 1) { ?>
-        <a href="managed-shop.php">Voir ces magasins</a>
+        <a href="managed-shop.php">Voir mes magasins</a>
         <?php }
     } ?>
     <a href="logout.php">Se déconnecter</a>
