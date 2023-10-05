@@ -58,12 +58,10 @@ $now = DateTime::createFromFormat('U.u', microtime(true));
 srand($now->format("Hisu"));
 $random = rand();
 
-echo "piooouoi";
 $requete = $pdo->prepare("select COUNT(*) as total from code WHERE id_user = :id_user");
 $requete->bindParam(':id_user', $_SESSION['user']['id']);
 $requete->execute();
 $lignes = $requete->fetchAll();
-echo "piooouoi";
 
 foreach ($lignes as $l) {
     if ($l['total'] == 0) {
@@ -87,6 +85,7 @@ foreach ($lignes as $l) {
 
 <main class="main-account">
     <?php
+    echo "popopopopo";
     $requete = $pdo->prepare("select * from code WHERE id_user = :id_user");
     $requete->bindParam(":id_user", $_SESSION['user']['id']);
     $requete->execute();
