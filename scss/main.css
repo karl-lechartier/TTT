@@ -467,6 +467,17 @@ nav .nav-header a {
   color: inherit;
   text-decoration: none;
 }
+nav .qr-container a {
+  display: flex;
+  align-items: center;
+  color: #184725;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav .qr-container a i {
+  font-size: 3rem;
+  margin-right: 2rem;
+}
 nav .nav-account a {
   display: flex;
   align-items: center;
