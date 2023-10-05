@@ -15,6 +15,10 @@ if (isset($_POST['supp'])) {
 
     $id = $_SESSION['user']['id'];
 
+    $requete = $pdo->prepare("DELETE from code where id_user = :id_user");
+    $requete->bindParam(":id_user", $id);
+    $requete->execute();
+
     $requete = $pdo->prepare("DELETE FROM user where id=:id");
     $requete->bindParam(":id", $id);
     $requete->execute();
