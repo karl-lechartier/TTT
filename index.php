@@ -6,7 +6,6 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 session_start();
 $_SESSION = array();
 session_destroy();
-header('location: index.php');
 ?>
 
 <body>
