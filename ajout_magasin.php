@@ -59,17 +59,23 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
     <main>
-        <form action="ajout_magasin.php" method="post" enctype="multipart/form-data">
+        <h1 class="titre">Ajouter un magasin</h1>
+        <form action="ajout_magasin.php" method="post" enctype="multipart/form-data" class="login-form">
             <input type="hidden" name="token" value="<?php echo $token ?>">
-            <label for="name">Nom du magasin</label>
-            <input type="text" id="name" name="name" required>
-            <label for="adress">Adresse du magasin</label>
-            <input type="text" id="adress" name="adress" required>
-            <label for="category">Catégorie</label>
-            <input type="text" id="category" name="category" required>
-            <label for="photo">Photo du magasin</label>
-            <input type="file" id="photo" name="photo" enctype="multipart/form-data" required>
-            <input type="submit" value="Valider" name="valider">
+
+            <label for="name" class="form-label">Nom du magasin</label>
+            <input type="text" id="name" name="name" required class="form-input">
+
+            <label for="adress" class="form-label">Adresse du magasin</label>
+            <input type="text" id="adress" name="adress" required class="form-input">
+
+            <label for="category" class="form-label">Catégorie</label>
+            <input type="text" id="category" name="category" required class="form-input">
+
+            <label for="photo" class="form-label">Photo du magasin</label>
+            <input type="file" id="photo" name="photo" enctype="multipart/form-data" required class="form-input">
+
+            <input type="submit" value="Ajouter au magasin" name="valider" class="submit-button">
         </form>
     </main>
 <?php
