@@ -59,13 +59,17 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
 <main>
-    <form action="proprioAddPoints.php" method="post">
+    <h1 class="titre">Ajouter des points</h1>
+    <form action="proprioAddPoints.php" method="post" class="login-form">
         <input type="hidden" name="token" id="token" value="<?php echo $token ?>">
-        <label for="code">Code client </label>
-        <input type="number" id="code" name="code" required>
-        <label for="points">Points gagnés </label>
-        <input type="number" id="points" name="points" required>
-        <input type="submit" id="valider" name="valider" value="Valider">
+
+        <label for="code" class="form-label">Code client </label>
+        <input type="number" id="code" name="code" required class="form-input">
+
+        <label for="points" class="form-label">Points gagnés </label>
+        <input type="number" id="points" name="points" required class="form-input">
+
+        <input type="submit" id="valider" name="valider" value="Valider" class="button">
     </form>
 </main>
 <?php
