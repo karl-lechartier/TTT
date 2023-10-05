@@ -33,7 +33,8 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
         $requete->execute();
     } else {
         echo "else";
-        $requete = $pdo->prepare("SELECT * FROM shop WHERE name LIKE '%:query%'");
+        $query = "'%".$query."%'";
+        $requete = $pdo->prepare("SELECT * FROM shop WHERE name LIKE :query");
         $requete->bindParam(':query', $query);
         $requete->execute();
     }
