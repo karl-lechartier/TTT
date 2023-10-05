@@ -3,6 +3,10 @@ $title = "Gigaldi";
 include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
+session_start();
+$_SESSION = array();
+session_destroy();
+header('location: index.php');
 ?>
 
 <body>
