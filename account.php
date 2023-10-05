@@ -63,6 +63,7 @@ $requete = $pdo->prepare("select COUNT(*) as total from code WHERE id_user = :id
 $requete->bindParam(':id_user', $_SESSION['user']['id']);
 $requete->execute();
 $lignes = $requete->fetchAll();
+echo "piooouoi";
 
 foreach ($lignes as $l) {
     if ($l['total'] == 0) {
