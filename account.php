@@ -91,8 +91,11 @@ $_SESSION["token"] = $token;
             echo "checked";
         } ?> >
         <input type="submit" value="Sauvegarder" name="valider" id="valider">
-        <?php } ?>
     </form>
+        <?php if ($l['pro'] == 1) { ?>
+        <a href="managed-shop.php">Voir ces magasins</a>
+        <?php }
+    } ?>
     <a href="logout.php">Se déconnecter</a>
     <a href="deleteAccount.php">Supprimer son compte</a>
 </main>
