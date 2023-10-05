@@ -68,7 +68,7 @@ $_SESSION["token"] = $token;
             <label for="category">Catégorie</label>
             <input type="text" id="category" name="category" required>
             <label for="photo">Photo du magasin</label>
-            <input type="file" id="photo" name="photo" enctype="multipart/form-data" required>
+            <input type="file" id="photo" name="photo" enctype="multipart/form-data" accept=".jpg, .jpeg, .png" required>
             <input type="submit" value="Valider" name="valider">
         </form>
     </main>
