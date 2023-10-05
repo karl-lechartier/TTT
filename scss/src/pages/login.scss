@@ -60,6 +60,24 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
   }
 }
 
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: $primary-color;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px $box-shadow-color;
+  text-decoration: none;
+  margin: 0;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    box-shadow: 0 4px 6px $box-shadow-color;
+  }
+}
+
 .create-account {
   margin-top: 20px;
   text-align: center;
