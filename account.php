@@ -85,7 +85,6 @@ foreach ($lignes as $l) {
 
 <main class="main-account">
     <?php
-    echo "popopopopo";
     $requete = $pdo->prepare("select * from code WHERE id_user = :id_user");
     $requete->bindParam(":id_user", $_SESSION['user']['id']);
     $requete->execute();
