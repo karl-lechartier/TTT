@@ -22,7 +22,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
     <div class="card-deck">
     <?php
-    $query = "";
+    $query = "ouuououu";
     echo $query;
     $query = $_GET['query'];
 
