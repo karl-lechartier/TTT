@@ -3,6 +3,8 @@ include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
+$id_shop = $_GET['id_shop'];
+
 if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
@@ -11,7 +13,15 @@ if (!$_SESSION['user']['pro']) {
     header ("location: account.php");
 }
 
-$id_shop = $_GET['id_shop'];
+$requete = $pdo->prepare("Select * from user_shop WHERE id_shop = :id_shop");
+$requete->bindParam("id_shop", $id_shop);
+$requete->execute();
+$lignes = $requete->fetchAll();
+foreach ($lignes as $l) {
+    if ($_SESSION['user']['id'] != $l['id_user']) {
+        header ("location: account.php");
+    }
+}
 
 if (isset($_POST['valider'])) {
     $token=filter_input(INPUT_POST, "token");
