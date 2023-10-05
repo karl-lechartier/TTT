@@ -36,6 +36,7 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
                         <a href="deleteShop.php?shop=<?php echo $l['id'] ?>">Supprimer le magasin</a>
                         <a href="updateShop.php?shop=<?php echo $l['id'] ?>">Modifier les informations</a>
                         <a href="manageOffer.php?shop=<?php echo $l['id'] ?>">Gérer les offres</a>
+                        <a href="proprioAddPoints.php">Rentrer le code client</a>
                     </div>
                 <?php
             }
