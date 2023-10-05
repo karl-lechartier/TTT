@@ -196,8 +196,7 @@ nav > #nav-check {
 }
 
 .login-form {
-  padding: 20px;
-  padding-left: 0px;
+  padding: 20px 20px 20px 0;
   width: 80vw;
   margin: 2rem auto;
 }
