@@ -28,9 +28,11 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
     var_dump($query);
 
     if ($query==""){
+        echo "if";
         $requete = $pdo->prepare("select * from shop LIMIT 30");
         $requete->execute();
     } else {
+        echo "else";
         $requete = $pdo->prepare("SELECT * FROM shop WHERE name LIKE '%:query%'");
         $requete->bindParam(':query', $query);
         $requete->execute();
