@@ -361,6 +361,10 @@ nav > #nav-check {
   transform: translateX(26px);
 }
 
+.submit-button {
+  margin-top: 1rem;
+}
+
 .create-account, .already-have-account {
   margin-top: 20px;
   text-align: center;

@@ -108,7 +108,7 @@ $_SESSION["token"] = $token;
                 </div>
             </div>
 
-            <input type="submit" value="Valider" name="valider" class="submit-button">
+            <input type="submit" value="Créer son compte" name="valider" class="submit-button">
         </form>
         <div class="already-have-account">
             <h2>Vous avez déjà un compte?</h2>
