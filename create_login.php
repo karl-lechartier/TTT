@@ -8,8 +8,8 @@ if ($_SESSION['user']['id']) {
 }
 
 if (isset($_POST['valider'])) {
-    $token=filter_input(INPUT_POST, "token");
-    if($token!=$_SESSION["token"]){
+    $token = filter_input(INPUT_POST, "token");
+    if ($token != $_SESSION["token"]) {
         die("Erreur de Token");
     }
 
@@ -66,33 +66,55 @@ if (isset($_POST['valider'])) {
             die("L'adresse mail a déjà été utilisée");
         }
     }
-
-    $token = uniqid();
-    $_SESSION["token"] = $token;
 }
+$token = uniqid();
+$_SESSION["token"] = $token;
+
 ?>
-<main>
-    <form action="create_login.php" method="post">
-        <input type="hidden" value="<?php echo $token ?>" id="token">
-        <label for="name">Prénom :</label>
-        <input type="text" id="name" name="name" required placeholder="Krarkl">
-        <label for="lastname">Nom :</label>
-        <input type="text" id="lastname" name="lastname" required placeholder="Lechartier">
-        <label for="mail">Mail :</label>
-        <input type="email" id="mail" name="mail" required placeholder="krarlk@mail.fr">
-        <label for="adress">Adresse :</label>
-        <input type="text" id="adress" name="adress" required placeholder="4 route de Krakrl">
-        <label for="postalcode">Code postal :</label>
-        <input type="number" id="postalcode" name="postalcode" required placeholder="44000">
-        <label for="city">Ville :</label>
-        <input type="text" id="city" name="city" required placeholder="Nantes">
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required placeholder="password">
-        <label for="pro">Est professionnel :</label>
-        <input type="checkbox" id="pro" name="pro">
-        <input type="submit" value="Valider" name="valider">
-    </form>
-</main>
+
+
+    <main>
+        <h1 class="titre">Créer un compte</h1>
+
+        <form action="create_login.php" method="post" class="login-form">
+            <input type="hidden" value="<?php echo $token ?>" name="token">
+
+            <label for="name" class="form-label">Prénom :</label>
+            <input type="text" id="name" name="name" required placeholder="Krarkl" class="form-input">
+
+            <label for="lastname" class="form-label">Nom :</label>
+            <input type="text" id="lastname" name="lastname" required placeholder="Lechartier" class="form-input">
+
+            <label for="mail" class="form-label">Mail :</label>
+            <input type="email" id="mail" name="mail" required placeholder="krarlk@mail.fr" class="form-input">
+
+            <label for="adress" class="form-label">Adresse :</label>
+            <input type="text" id="adress" name="adress" required placeholder="4 route de Krakrl" class="form-input">
+
+            <label for="postalcode" class="form-label">Code postal :</label>
+            <input type="number" id="postalcode" name="postalcode" required placeholder="44000" class="form-input">
+
+            <label for="city" class="form-label">Ville :</label>
+            <input type="text" id="city" name="city" required placeholder="Nantes" class="form-input">
+
+            <label for="password" class="form-label">Mot de passe :</label>
+            <input type="password" id="password" name="password" required placeholder="password" class="form-input">
+
+            <div class="pro">
+                <label for="pro" class="form-label">Êtes-vous professionnel ?</label>
+                <div class="switch">
+                    <input type="checkbox" id="pro" name="pro" class="form-input-checkbox">
+                    <label for="pro" class="slider"></label>
+                </div>
+            </div>
+
+            <input type="submit" value="Valider" name="valider" class="submit-button">
+        </form>
+        <div class="already-have-account">
+            <h2>Vous avez déjà un compte?</h2>
+            <a href="login.php" class="already-account-link">Se connecter</a>
+        </div>
+    </main>
 <?php
 include "footer.php";
 ?>
