@@ -18,9 +18,35 @@ if (isset($_POST['supp'])) {
     $requete->bindParam(":id_user", $id);
     $requete->execute();
 
-    $requete = $pdo->prepare("DELETE FROM user_shop where id_user=:id");
+
+    $requete = $pdo->prepare("SELECT shop.* FROM user_shop INNER JOIN shop ON user_shop.id_shop = shop.id WHERE user_shop.id_user = :id");
     $requete->bindParam(":id", $id);
     $requete->execute();
+
+    $lignes = $requete->fetchAll();
+    foreach ($lignes as $l) {
+        $idshop = $l['id'];
+        $requete = $pdo->prepare("SELECT photo FROM `shop` WHERE id = :id");
+        $requete->bindParam(":id", $idshop);
+        $requete->execute();
+
+        $lignes = $requete->fetchAll();
+        foreach ($lignes as $s) {
+            $nomimg = 'img/'.$l['photo'];
+        }
+        unlink($nomimg);
+
+        $requete = $pdo->prepare("DELETE FROM user_shop where id_shop=:id");
+        $requete->bindParam(":id", $idshop);
+        $requete->execute();
+
+        $requete = $pdo->prepare("DELETE FROM `shop` WHERE id=:id");
+        $requete->bindParam(":id", $idshop);
+        $requete->execute();
+    }
+
+
+
 
 
 
