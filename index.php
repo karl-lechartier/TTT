@@ -23,22 +23,15 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
     <div class="card-deck">
     <?php
     $query = "";
-    var_dump($query);
     $query = $_GET['query'];
-    var_dump($query);
 
     if ($query==""){
-        echo "if";
         $requete = $pdo->prepare("select * from shop LIMIT 30");
         $requete->execute();
     } else {
-        echo "else";
         $query = "%".$query."%";
-        echo '<br>';
-        echo $query;
         $requete = $pdo->prepare("SELECT * FROM shop WHERE name LIKE :query");
         $requete->bindParam(':query', $query);
-        var_dump($requete);
         $requete->execute();
     }
 
