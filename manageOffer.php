@@ -3,6 +3,8 @@ include "header.php";
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
+$id_shop = $_GET['shop'];
+
 if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
@@ -11,7 +13,16 @@ if (!$_SESSION['user']['pro']) {
     header ("location: account.php");
 }
 
-$id_shop = $_GET['shop'];
+$requete = $pdo->prepare("Select * from user_shop WHERE id_shop = :id_shop");
+$requete->bindParam("id_shop", $id_shop);
+$requete->execute();
+$lignes = $requete->fetchAll();
+foreach ($lignes as $l) {
+    if ($_SESSION['user']['id'] != $l['id_user']) {
+        header ("location: account.php");
+    }
+}
+
 ?>
 <main>
     <a href="addOffer.php?id_shop=<?php echo $id_shop?>">Ajouter une offre</a>

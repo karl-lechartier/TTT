@@ -13,6 +13,16 @@ if (!$_SESSION['user']['pro']) {
     header ("location: account.php");
 }
 
+$requete = $pdo->prepare("Select * from user_shop WHERE id_shop = :id_shop");
+$requete->bindParam("id_shop", $id);
+$requete->execute();
+$lignes = $requete->fetchAll();
+foreach ($lignes as $l) {
+    if ($_SESSION['user']['id'] != $l['id_user']) {
+        header ("location: account.php");
+    }
+}
+
 if (isset($_POST['supp'])) {
     $token=filter_input(INPUT_POST, "token");
     if($token!=$_SESSION["token"]){
