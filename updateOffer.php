@@ -63,18 +63,25 @@ $_SESSION["token"] = $token;
 
     foreach ($lignes as $l) {
     ?>
-    <form action="updateOffer.php?id=<?php echo $l['id']?>" method="post">
+            <h1 class="titre">Modifier le magasin</h1>
+    <form action="updateOffer.php?id=<?php echo $l['id']?>" method="post" class="login-form">
         <input type="hidden" name="token" value="<?php echo $token ?>">
-        <label for="title">Titre </label>
-        <input type="text" id="title" name="title" value="<?php echo $l['title'] ?>" required >
-        <label for="description">Description </label>
-        <textarea name="description" id="description" cols="30" rows="10" required><?php echo $l['description'] ?></textarea>
-        <label for="date_start">Date de début </label>
-        <input type="datetime-local" id="date_start" name="date_start" value="<?php echo $l['date_start'] ?>" required>
-        <label for="date_end">Date de fin </label>
-        <input type="datetime-local" id="date_end" name="date_end" value="<?php echo $l['date_end'] ?>" required>
-        <label for="points">Points </label>
-        <input type="number" value="<?php echo $l['points'] ?>" id="points" name="points" required>
+
+        <label class="form-label" for="title">Titre </label>
+        <input class="form-input" type="text" id="title" name="title" value="<?php echo $l['title'] ?>" required >
+
+        <label class="form-label" for="description">Description </label>
+        <textarea class="form-input" name="description" id="description" cols="30" rows="10" required><?php echo $l['description'] ?></textarea>
+
+        <label class="form-label" for="date_start">Date de début </label>
+        <input class="form-input" type="datetime-local" id="date_start" name="date_start" value="<?php echo $l['date_start'] ?>" required>
+
+        <label class="form-label" for="date_end">Date de fin </label>
+        <input class="form-input" type="datetime-local" id="date_end" name="date_end" value="<?php echo $l['date_end'] ?>" required>
+
+        <label class="form-label" for="points">Points </label>
+        <input class="form-input" type="number" value="<?php echo $l['points'] ?>" id="points" name="points" required>
+
         <input type="submit" value="Modifier" name="modify" id="modify">
     </form>
         <?php } ?>
