@@ -22,9 +22,10 @@ $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Conf
 
     <div class="card-deck">
     <?php
-    $query = "ouuououu";
-    echo $query;
+    $query = "";
+    var_dump($query);
     $query = $_GET['query'];
+    var_dump($query);
 
     if ($query==""){
         $requete = $pdo->prepare("select * from shop LIMIT 30");
