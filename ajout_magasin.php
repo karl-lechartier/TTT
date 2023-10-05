@@ -8,6 +8,10 @@ if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
 
+if (!$_SESSION['user']['pro']) {
+    header ("location: account.php");
+}
+
 if (isset($_POST['valider'])) {
 
     $token=filter_input(INPUT_POST, "token");

@@ -7,6 +7,10 @@ if (!$_SESSION['user']['id']) {
     header('location: index.php');
 }
 
+if (!$_SESSION['user']['pro']) {
+    header ("location: account.php");
+}
+
 $id_shop = $_GET['shop'];
 ?>
 <main>
