@@ -66,17 +66,23 @@ $_SESSION["token"] = $token;
 
         foreach ($lignes as $l) {
             ?>
-            <form action="updateShop.php?shop=<?php echo $l['id'] ?>" method="post" enctype="multipart/form-data">
+                <h1 class="titre">Modifier le shop</h1>
+            <form action="updateShop.php?shop=<?php echo $l['id'] ?>" method="post" enctype="multipart/form-data" class="login-form">
                 <input type="hidden" name="token" value="<?php echo $token ?>">
-                <label for="name" >Nom du magasin</label>
-                <input type="text" id="name" name="name" value="<?php echo $l['name'] ?>" required>
-                <label for="adress">Adresse du magasin</label>
-                <input type="text" id="adress" name="adress" value="<?php echo $l['adress'] ?>" required>
-                <label for="category">Catégorie</label>
-                <input type="text" id="category" name="category" value="<?php echo $l['category'] ?>" required>
-                <label for="photo">Photo du magasin</label>
-                <input type="file" id="photo" name="photo" value="<?php echo $l['photo'] ?>">
-                <input type="submit" value="Modifier" name="modify" id="modify">
+
+                <label class="form-label" for="name" >Nom du magasin</label>
+                <input class="form-input" type="text" id="name" name="name" value="<?php echo $l['name'] ?>" required>
+
+                <label class="form-label" for="adress">Adresse du magasin</label>
+                <input class="form-input" type="text" id="adress" name="adress" value="<?php echo $l['adress'] ?>" required>
+
+                <label class="form-label" for="category">Catégorie</label>
+                <input class="form-input" type="text" id="category" name="category" value="<?php echo $l['category'] ?>" required>
+
+                <label class="form-label" for="photo">Photo du magasin</label>
+                <input class="form-input" type="file" id="photo" name="photo" value="<?php echo $l['photo'] ?>">
+
+                <input type="submit" value="Modifier" name="modify" id="modify" class="button">
             </form>
         <?php } ?>
     </main>

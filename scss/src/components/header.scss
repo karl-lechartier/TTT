@@ -35,6 +35,19 @@ nav {
     }
   }
 
+  .qr-container a{
+    display: flex;
+    align-items: center;
+    color: $dark-green;
+    text-decoration: none;
+    font-size: 18px;
+    i{
+      font-size: 3rem;
+      margin-right: 2rem;
+    }
+
+  }
+
   .nav-account a {
     display: flex;
     align-items: center;

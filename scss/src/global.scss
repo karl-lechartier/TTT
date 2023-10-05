@@ -16,6 +16,12 @@ h1 {
   font-family: var(--font-secundary);
 }
 
+h1 {
+  margin: 0;
+  color: var(--dark-green);
+  text-shadow: 2px 1px var(--green);
+}
+
 
 body {
   margin: 0px;

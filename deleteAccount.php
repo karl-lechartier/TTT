@@ -32,10 +32,12 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
 <main>
-    <form action="deleteAccount.php" method="post">
-        <input type="hidden" name="token" value="<?php echo $token ?>">
-        <input type="submit" value="Valider la suppression" name="supp">
-    </form>
+    <div class="button-ajout-magasin-container">
+        <form action="deleteAccount.php" method="post">
+            <input type="hidden" name="token" value="<?php echo $token ?>">
+            <input class="button" type="submit" value="Valider la suppression" name="supp">
+        </form>
+    </div>
 </main>
 <?php
 include "footer.php"?>

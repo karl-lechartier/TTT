@@ -14,13 +14,21 @@ include "header_mini.php";
                 </div>
             </a>
         </div>
-        <div class="nav-account">
-            <a href="login.php">
-                <!-- Ajoutez votre icône ici. Exemple: -->
-                <!-- <img src="img/account-icon.png" alt="Account"> -->
-                <i class="fas fa-user"></i>
-            </a>
+        <div style="display: flex">
+            <?php if ($_SESSION['user']['pro']) {?>
+            <div class="qr-container">
+                <a href="proprioAddPoints.php">
+                    <i class="fa-solid fa-qrcode"></i>
+                </a>
+            </div>
+            <?php } ?>
+            <div class="nav-account">
+                <a href="login.php">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
         </div>
+
     </nav>
 
 </nav>

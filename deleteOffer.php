@@ -42,11 +42,14 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
     <main>
-        <form action="deleteOffer.php" method="post">
-            <input type="hidden" name="token" value="<?php echo $token ?>">
-            <input type="hidden" name="id_offer" value="<?php echo $id ?>">
-            <input type="submit" value="Valider la suppression" name="supp">
-        </form>
+        <div class="button-ajout-magasin-container">
+            <form action="deleteOffer.php" method="post">
+                <input type="hidden" name="token" value="<?php echo $token ?>">
+                <input type="hidden" name="id_offer" value="<?php echo $id ?>">
+                <input class="button" type="submit" value="Valider la suppression" name="supp">
+            </form>
+        </div>
+
     </main>
 <?php
 include "footer.php";

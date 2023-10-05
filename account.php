@@ -102,7 +102,7 @@ foreach ($lignes as $l) {
 
     foreach ($lignes as $l) {
     ?>
-            <p>Bienvenue <?php echo $l['name'] ?></p>
+            <h1 class="titre">Bienvenue <?php echo $l['name'] ?></h1>
     <p class="points">Vous avez <?php echo $l['points'] ?> Gigaldi Coins</p>
     <?php if ($_SESSION['user']['subscription'] == 1) { ?>
         <p>Abonnement Premium</p>
@@ -112,22 +112,35 @@ foreach ($lignes as $l) {
     <form action="account.php" method="post" id="userForm">
         <input type="hidden" name="id" value="<?php echo $l["id"] ?>">
         <input type="hidden" name="token" value="<?php echo $token ?>">
+
         <label for="name">Prénom :</label>
         <input type="text" id="name" name="name" required value="<?php echo $l['name'] ?>">
+
         <label for="lastname">Nom :</label>
         <input type="text" id="lastname" name="lastname" required value="<?php echo $l['lastname'] ?>">
+
         <label for="mail">Mail :</label>
         <input type="email" id="mail" name="mail" required value="<?php echo $l['mail'] ?>">
+
         <label for="adress">Adresse :</label>
         <input type="text" id="adress" name="adress" required value="<?php echo $l['adress'] ?>">
+
         <label for="postalcode">Code postal :</label>
         <input type="text" id="postalcode" name="postalcode" required value="<?php echo $l['postalcode'] ?>">
+
         <label for="city">Ville :</label>
         <input type="text" id="city" name="city" required value="<?php echo $l['city'] ?>">
-        <label for="pro">Est professionnel :</label>
-        <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {
-            echo "checked";
-        } ?> >
+
+        <div class="pro">
+            <label for="pro" class="form-label">Êtes-vous professionnel ?</label>
+            <div class="switch">
+                <input type="checkbox" id="pro" name="pro" <?php if ($l['pro'] == 1) {
+                    echo "checked";
+                } ?> >
+                <label for="pro" class="slider"></label>
+            </div>
+        </div>
+
         <input type="submit" value="Sauvegarder" name="valider" id="valider">
     </form>
         <?php if ($l['pro'] == 1) { ?>
