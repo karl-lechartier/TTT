@@ -22,6 +22,7 @@ if (isset($_POST['supp'])) {
     $requete = $pdo->prepare("DELETE FROM user where id=:id");
     $requete->bindParam(":id", $id);
     $requete->execute();
+    echo "ziziz";
 
     $_SESSION = array();
     session_destroy();
