@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+
 include_once "config.php";
 $pdo = new PDO("mysql:host=" . Config::SERVEUR . "; dbname=" . Config::BDO, Config::UTILISATEUR, Config::MOTDEPASSE);
 
@@ -52,18 +53,54 @@ if (isset($_POST['valider'])) {
 $token = uniqid();
 $_SESSION["token"] = $token;
 
+$now = DateTime::createFromFormat('U.u', microtime(true));
+
+srand($now->format("Hisu"));
+$random = rand();
+
+$requete = $pdo->prepare("select COUNT(*) as total from code WHERE id_user = :id_user");
+$requete->bindParam(':id_user', $_SESSION['user']['id']);
+$requete->execute();
+$lignes = $requete->fetchAll();
+
+foreach ($lignes as $l) {
+    if ($l['total'] == 0) {
+
+        $requete2 = $pdo->prepare("select COUNT(*) as total from code WHERE code = :code");
+        $requete2->bindParam(':code', $random);
+        $requete2->execute();
+        $lignes2 = $requete2->fetchAll();
+
+        foreach ($lignes2 as $l2) {
+            if ($l2['total'] == 0) {
+                $requete3 = $pdo->prepare("insert into code (id, code, id_user) VALUES (NULL, :code, :id_user)");
+                $requete3->bindParam(':code', $random);
+                $requete3->bindParam(':id_user', $_SESSION['user']['id']);
+                $requete3->execute();
+            }
+        }
+    }
+}
 ?>
 
 <main class="main-account">
     <?php
+    $requete = $pdo->prepare("select * from code WHERE id_user = :id_user");
+    $requete->bindParam(":id_user", $_SESSION['user']['id']);
+    $requete->execute();
+    $lignes = $requete->fetchAll();
+
+    foreach ($lignes as $l) {
+    ?>
+        <h1><?php echo $l['code'] ?></h1>
+    <?php
+    }
     $requete = $pdo->prepare("select * from user WHERE id = :id");
     $requete->bindParam(':id', $_SESSION['user']['id']);
     $requete->execute();
     $lignes = $requete->fetchAll();
 
-    foreach ($lignes
-
-    as $l) {
+    foreach ($lignes as $l) {
     ?>
     <p class="points">Vous avez <?php echo $l['points'] ?> Gigaldi Coins</p>
     <?php if ($_SESSION['user']['subscription'] == 1) { ?>
