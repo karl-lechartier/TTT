@@ -102,6 +102,7 @@ foreach ($lignes as $l) {
 
     foreach ($lignes as $l) {
     ?>
+            <p>Bienvenue <?php echo $l['name'] ?></p>
     <p class="points">Vous avez <?php echo $l['points'] ?> Gigaldi Coins</p>
     <?php if ($_SESSION['user']['subscription'] == 1) { ?>
         <p>Abonnement Premium</p>
