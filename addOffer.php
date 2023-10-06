@@ -56,20 +56,27 @@ $token = uniqid();
 $_SESSION["token"] = $token;
 ?>
     <main>
-        <form action="addOffer.php" method="post">
+        <h1>Ajouter une offre</h1>
+        <form action="addOffer.php" method="post" class="login-form">
             <input type="hidden" name="token" value="<?php echo $token ?>">
-            <input type="hidden" name="shop" value="<?php echo $id_shop ?>">
-            <label for="title">Titre </label>
-            <input type="text" id="title" name="title" required>
-            <label for="description">Description </label>
-            <textarea name="description" id="description" cols="30" rows="10" required></textarea>
-            <label for="date_start">Date de début </label>
-            <input type="datetime-local" id="date_start" name="date_start" required>
-            <label for="date_end">Date de fin </label>
-            <input type="datetime-local" id="date_end" name="date_end" required>
-            <label for="points">Points </label>
-            <input type="number" id="points" name="points" required>
-            <input type="submit" value="Valider" name="valider" id="valider">
+            <input class="form-input" type="hidden" name="shop" value="<?php echo $id_shop ?>">
+
+            <label class="form-label" for="title">Titre </label>
+            <input class="form-input" type="text" id="title" name="title" required>
+
+            <label class="form-label" for="description">Description </label>
+            <textarea class="form-input" name="description" id="description" cols="30" rows="10" required></textarea>
+
+            <label class="form-label" for="date_start">Date de début </label>
+            <input class="form-input" type="datetime-local" id="date_start" name="date_start" required>
+
+            <label class="form-label" for="date_end">Date de fin </label>
+            <input class="form-input" type="datetime-local" id="date_end" name="date_end" required>
+
+            <label class="form-label" for="points">Points </label>
+            <input class="form-input" type="number" id="points" name="points" required>
+
+            <input type="submit" value="Valider" name="valider" id="valider" class="button">
         </form>
     </main>
 
