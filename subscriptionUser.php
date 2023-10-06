@@ -48,12 +48,14 @@ $_SESSION["token"] = $token;
 ?>
     <main>
         <form action="subscriptionUser.php" method="post">
-            <input type="hidden" name="token" value="<?php echo $token ?>">
-            <?php if ($_SESSION['user']['subscription'] == 0) {?>
-                <input type="submit" value="S'abonner" name="sub">
-            <?php } else {?>
-                <input type="submit" value="Se désabonner" name="unsub">
-            <?php } ?>
+            <div class="button-ajout-magasin-container">
+                <input type="hidden" name="token" value="<?php echo $token ?>">
+                <?php if ($_SESSION['user']['subscription'] == 0) {?>
+                    <input type="submit" value="S'abonner pour 10 000€/secondes" name="sub" class="button">
+                <?php } else {?>
+                    <input type="submit" value="Se désabonner (frais de 1M€)" name="unsub" class="button">
+                <?php } ?>
+            </div>
         </form>
     </main>
 <?php
